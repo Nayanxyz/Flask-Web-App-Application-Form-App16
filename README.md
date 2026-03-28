@@ -17,3 +17,19 @@ A full-stack web application built with Python and Flask. This system handles fr
 * **Email Provider:** Flask-Mail (SMTP configuration)
 * **Frontend:** HTML5, Bootstrap 5 (CDN), jQuery
 
+## 🚀 Installation & Setup
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/Nayanxyz/Flask-Web-App-Application-Form-App16
+.git
+cd Flask-Web-App-Application-Form-App16
+```
+**2. Initialize Dependencies**
+```bash
+pip install Flask Flask-SQLAlchemy Flask-Mail
+```
+**3. Execute the application**
+```bash
+python main.py
+```
