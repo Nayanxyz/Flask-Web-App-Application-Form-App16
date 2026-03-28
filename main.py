@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request
+from datetime import datetime
+from flask import Flask, render_template, request, flash
+
 
 app = Flask(__name__)
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -9,9 +12,12 @@ def index():
         last_name = request.form["last_name"]
         email = request.form["email"]
         date = request.form["date"]
+        date_obj = datetime.strptime(date,"%Y-%m-%d")
         occupation = request.form["occupation"]
+
 
     return render_template("index.html")
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
