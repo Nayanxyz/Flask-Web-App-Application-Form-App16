@@ -1,0 +1,97 @@
+1. The Document Structure
+
+    <!DOCTYPE html> & <html>
+        Definition: The universal declaration that tells the browser this file is a modern web page.
+
+        Usage: It wraps the entire document. Every other piece of code lives inside the <html> boundaries.
+
+    <head>
+        Definition: The invisible control center of the page. Nothing inside here shows up directly on the screen.
+
+        Usage: Holds settings, titles, and links to external design files.
+
+    <meta>
+        Definition: Hidden tags that provide background instructions to the web browser.
+
+        Usage: Used here to ensure the text characters display correctly (utf-8) and to force
+                the page to scale and fit properly on mobile phone screens (viewport).
+
+    <link>
+        Definition: A bridge connecting the current HTML file to an external styling document.
+
+        Usage: Used specifically to pull in the Bootstrap CSS framework from the internet,
+                instantly applying professional styling, margins, and colors to the raw HTML elements.
+
+2. The Visible Canvas
+
+    <body>
+        Definition: The main container for all visible content.
+
+        Usage: Everything intended to be seen on the screen is placed inside here.
+
+    <div>
+        Definition: A division or an invisible rectangular box.
+
+        Usage: The most heavily used element in the code. It acts as a structural frame.
+                Combined with Bootstrap classes (like container, form-group, alert),
+                it strictly controls spacing, stacking, and alignment of the form items.
+
+    <h1>
+        Definition: The largest, most important text heading on the page.
+
+        Usage: Displays the main title, "Job Application Form", at the very top of the structure.
+
+    <br>
+        Definition: A simple line break.
+
+        Usage: Forces whatever comes next to drop down to a brand new line.
+
+3. The Data Engine (The Form)
+
+    <form>
+        Definition: The interactive wrapper that specifically gathers user input and sends it to a server.
+
+        Usage: Configured with method="post". This acts as a secure shipping container,
+                ensuring the typed data is sent securely to the Python backend in the background,
+                rather than exposing it in the web address bar.
+
+    <label>
+        Definition: A piece of text directly attached to a specific input box.
+
+        Usage: Tells the user exactly what to type. For the radio buttons, it is linked via the for attribute,
+                meaning a click on the text itself will activate the associated circular button.
+
+    <input>
+        Definition: The actual interactive field where data is collected.
+
+        Usage: Modified heavily using the type attribute:
+
+    type="text" & type="email": Creates typing boxes.
+
+    type="date": Forces a calendar popup for date selection.
+
+    type="radio": Creates circular buttons where only one option can be chosen.
+
+    Crucial backend link: The name attribute in these inputs (e.g., name="first_name") is the exact key
+            the Python backend uses to extract the data.
+
+    <button>
+        Definition: A physical, clickable trigger.
+
+        Usage: Configured with type="submit". Clicking it commands the <form> to instantly pack up
+                all collected data and shoot it to the Python server.
+
+4. The Dynamic & External Logic
+
+    {% ... %} and {{ ... }} (Jinja2 Templating)
+        Definition: Not actual HTML. This is a special templating language that Python understands.
+
+        Usage: Allows the backend server to inject dynamic variables (like the success flash message) directly
+                into the static HTML before the page is ever sent to the browser.
+
+    <script>
+        Definition: A tag used to embed or link executable JavaScript code.
+
+        Usage: Placed at the absolute bottom of the <body> to load external logic (jQuery and Bootstrap JS)
+                from the internet, allowing advanced interactive UI features to work properly without slowing
+                down the initial page load.
