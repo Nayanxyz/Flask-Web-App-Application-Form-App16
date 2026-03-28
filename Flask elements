@@ -1,0 +1,78 @@
+1. The Time Tool (datetime)
+
+    Class: datetime
+        Definition: A built-in tool to handle dates and times mathematically,
+                    rather than treating them as plain text.
+
+        Usage: The HTML form sends the date as raw text (a string). The database
+                cannot process raw text as a date. The method datetime.strptime()
+                is used to catch that text and translate it into a strict date format
+                that the database can safely store.
+
+2. The Web Engine (flask)
+
+    Class: Flask
+        Definition: The core software that turns a normal Python script into a live web server.
+
+        Usage: Flask(__name__) starts the engine. The entire application runs inside this object.
+
+    Object: request
+        Definition: A container that holds all the information sent from the
+                    web browser to the server.
+
+        Usage: It acts as the receiver. request.method == "POST" checks if the form
+                button was actually clicked. request.form["first_name"] reaches into the HTML
+                and pulls out the exact text typed into that specific box.
+
+    Function: render_template
+        Definition: A command to load HTML files and send them to the screen.
+
+        Usage: Placed at the very end to display index.html after the background code finishes running.
+
+    Function: flash
+        Definition: A tool used to send a temporary alert message from the backend to the frontend.
+
+        Usage: It generates the "submitted successfully" text and passes it to the HTML.
+
+3. The Database Translator (flask_sqlalchemy)
+
+    Class: SQLAlchemy
+        Definition: A tool that translates Python code into SQL commands. It allows the
+        creation and management of databases without writing raw SQL queries.
+
+        Usage: db = SQLAlchemy(app) links the web app to a local database file named data.db.
+
+    Classes: db.Model, db.Column, db.String, db.Integer
+        Definition: The architectural blueprints used to design a database table.
+
+        Usage: Used to build the Form class. They strictly define what kind of data is
+                allowed in each column (e.g., numbers for the ID, text strings for names, dates for the date column).
+
+    Methods: db.session.add() & db.session.commit()
+        Definition: The commands to insert new information into the database.
+
+        Usage: add() places the newly collected form data into a temporary waiting area.
+                commit() permanently saves that data into the actual database file.
+
+    Method: db.create_all()
+        Definition: An initialization command that generates the database tables.
+
+        Usage: Runs right before the server starts. If the data.db file does not exist, this creates it automatically.
+
+4. The Email Courier (flask_mail)
+
+    Class: Mail
+        Definition: The engine that connects the Python server to a real email provider (like Gmail).
+
+        Usage: Mail(app) reads the SMTP server settings provided in the app.config block and establishes the connection.
+
+    Class: Message
+        Definition: A digital envelope used to format an email before sending.
+
+        Usage: It is used to bundle the subject line, the sender address, the recipient address,
+                and the actual text body (message_body) into one package.
+
+    Method: mail.send()
+        Definition: The trigger command.
+
+        Usage: It takes the drafted Message package and pushes it out over the internet to the recipient's inbox.
